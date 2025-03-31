@@ -1,0 +1,31 @@
+/* FileReaderComponent.css */
+.file-reader-container {
+    text-align: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    width: 50%;
+    margin: auto;
+}
+
+.file-reader-title {
+    color: #2c3e50;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.file-reader-button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.file-reader-button:hover {
+    background: #2c3e50;
+}

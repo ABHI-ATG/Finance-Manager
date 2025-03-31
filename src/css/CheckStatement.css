@@ -1,0 +1,43 @@
+/* CheckStatement.css */
+.statement-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.statement-header {
+    text-align: center;
+    font-size: 22px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.statement-entry {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.statement-category {
+    font-size: 18px;
+    font-weight: bold;
+    color: #34495e;
+    margin-top: 10px;
+}
+
+.statement-item {
+    background: #ecf0f1;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.statement-item p {
+    margin: 3px 0;
+    font-size: 14px;
+}

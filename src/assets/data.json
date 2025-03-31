@@ -1,0 +1,16 @@
+[
+  {
+    "monthYear": "January 2025",
+    "entries": [
+      { "key": "Rent", "value": 1000, "description": "Monthly Rent" },
+      { "key": "Groceries", "value": 500, "description": "Food shopping" }
+    ]
+  },
+  {
+    "monthYear": "February 2025",
+    "entries": [
+      { "key": "Electricity", "value": 200, "description": "Electric bill" },
+      { "key": "Internet", "value": 50, "description": "WiFi payment" }
+    ]
+  }
+]
