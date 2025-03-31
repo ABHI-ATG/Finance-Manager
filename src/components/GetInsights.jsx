@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import "../css/GetInsights.css";
 
 const GetInsights = () => {
+  const categories = ["Credit","Expenses", "Credit Card", "Investment", "Repay", "Owe"];
   const startDate = useSelector((state) => state.finance.getStartDate);
   const endDate = useSelector((state) => state.finance.getEndDate);
   const parsedData = useSelector((state) => state.finance.parsedData);

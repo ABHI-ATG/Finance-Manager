@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import "../css/CheckStatement.css";
 
 const CheckStatement = () => {
+  const categories = ["Credit","Expenses", "Credit Card", "Investment", "Repay", "Owe"];
   const startDate = useSelector((state) => state.finance.startDate);
   const endDate = useSelector((state) => state.finance.endDate);
   const parsedData = useSelector((state) => state.finance.parsedData);
@@ -23,8 +24,8 @@ const CheckStatement = () => {
         .map((entry, index) => (
           <div key={index} className="statement-entry">
             <h3>Statement of {entry.monthYear}</h3>
-            {Object.keys(entry.categories).map((category, categoryIndex) => (
-              <div key={categoryIndex}>
+            {categories.map((category,index)=>(
+              <div key={index}>
                 <h4 className="statement-category">{category}</h4>
                 {entry.categories[category].map((val, i) => (
                   <div key={i} className="statement-item">

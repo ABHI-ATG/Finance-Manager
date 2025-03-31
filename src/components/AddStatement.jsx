@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "../css/AddStatement.css"; 
 
 const AddStatement = () => {
-  const categories = ["Expenses", "Credit Card", "Investment", "Repay", "Owe"];
+  const categories = ["Credit","Expenses", "Credit Card", "Investment", "Repay", "Owe"];
 
   const addDate = useSelector((state) => state.finance.addDate);
   const key = useSelector((state) => state.finance.key);
@@ -30,6 +30,7 @@ const AddStatement = () => {
         Investment: [],
         Repay: [],
         Owe: [],
+        Credit : []
       });
     }
   }, [parsedData, addDate]);
@@ -54,8 +55,6 @@ const AddStatement = () => {
     Object.values(data).forEach((categoryEntries) => {
       categoryEntries.forEach((item) => dispatch(setAddKey(item.key)));
     });
-    console.log(data);
-
     const selectedMonth = `${addDate.month} ${addDate.year}`;
     let updatedParsedData = parsedData.map((item) =>
       item.monthYear === selectedMonth
