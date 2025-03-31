@@ -4,7 +4,7 @@ import { setGetStartDate, setGetEndDate } from "../redux/financeSlice";
 import months from "../data/month";
 import years from "../data/year";
 import { useEffect, useState } from "react";
-import "../css/GetHome.css"; // Import the CSS file
+import "../css/GetHome.css"; 
 
 const GetHome = () => {
   const dispatch = useDispatch();
