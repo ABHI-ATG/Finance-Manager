@@ -84,3 +84,9 @@
 .submit-btn:hover {
     background: #076db0;
 }
+
+@media (max-width:650px){
+    .input-group{
+        flex-direction: column;
+    }
+}
