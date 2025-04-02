@@ -10,6 +10,7 @@ const GetInsights = () => {
 
   const [data, setData] = useState({});
   const [summary, setSummary] = useState({
+    creditAmount:0,
     expenses: 0,
     investment: 0,
     futureSpend: 0,
@@ -30,7 +31,8 @@ const GetInsights = () => {
     let expenses = 0,
       investment = 0,
       futureSpend = 0,
-      futureReceive = 0;
+      futureReceive = 0,
+      creditAmount=0;
 
     parsedData
       .filter((item) => validDate(item.monthYear))
@@ -59,7 +61,7 @@ const GetInsights = () => {
                 ? ", " + val.description
                 : "";
             }
-
+            if(key === 'Credit')creditAmount+=parseFloat(val.value)
             if (key === "Expenses" || key === "Credit Card")
               expenses += parseFloat(val.value);
             if (key === "Investment") investment += parseFloat(val.value);
@@ -71,7 +73,7 @@ const GetInsights = () => {
       });
 
     setData(newData);
-    setSummary({ expenses, investment, futureSpend, futureReceive });
+    setSummary({ creditAmount, expenses, investment, futureSpend, futureReceive });
   }, [parsedData, startDate, endDate]);
 
   return (
@@ -85,7 +87,7 @@ const GetInsights = () => {
             return (
               <div key={index} className="insight-item">
                 <p>
-                  <strong>{key}:</strong> ${value.expenditure.toFixed(2)}
+                  <strong>{key}:</strong> {value.expenditure.toFixed(2)}
                 </p>
                 {value.description && <p>Description: {value.description}</p>}
               </div>
@@ -97,16 +99,19 @@ const GetInsights = () => {
       <div className="summary-section">
         <h3>Summary</h3>
         <p>
-          <strong>Total Expenses:</strong> ${summary.expenses.toFixed(2)}
+          <strong>Total Credit Amount:</strong> {summary.creditAmount.toFixed(2)}
         </p>
         <p>
-          <strong>Total Investment:</strong> ${summary.investment.toFixed(2)}
+          <strong>Total Expenses:</strong> {summary.expenses.toFixed(2)}
         </p>
         <p>
-          <strong>Future Spend:</strong> ${summary.futureSpend.toFixed(2)}
+          <strong>Total Investment:</strong> {summary.investment.toFixed(2)}
         </p>
         <p>
-          <strong>Future Receive:</strong> ${summary.futureReceive.toFixed(2)}
+          <strong>Future Spend:</strong> {summary.futureSpend.toFixed(2)}
+        </p>
+        <p>
+          <strong>Future Receive:</strong> {summary.futureReceive.toFixed(2)}
         </p>
       </div>
     </div>

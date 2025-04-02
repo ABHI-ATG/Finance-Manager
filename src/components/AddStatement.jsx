@@ -52,7 +52,15 @@ const AddStatement = () => {
   };
 
   const onSubmit = () => {
-    Object.values(data).forEach((categoryEntries) => {
+    let updatedData = { ...data };
+    Object.values(updatedData).forEach((categoryEntries) => {
+      categoryEntries.forEach((item) => {
+        const trimmedKey = item.key.trim();
+        item.key = trimmedKey;
+        dispatch(setAddKey(trimmedKey));
+      });
+    });
+    Object.values(updatedData).forEach((categoryEntries) => {
       categoryEntries.forEach((item) => dispatch(setAddKey(item.key)));
     });
     const selectedMonth = `${addDate.month} ${addDate.year}`;
@@ -60,7 +68,7 @@ const AddStatement = () => {
       item.monthYear === selectedMonth
         ? {
             monthYear: selectedMonth,
-            categories: data,
+            categories: updatedData,
           }
         : item
     );
@@ -69,7 +77,7 @@ const AddStatement = () => {
         ...updatedParsedData,
         {
           monthYear: selectedMonth,
-          categories: data,
+          categories: updatedData,
         },
       ];
     }
@@ -82,6 +90,7 @@ const AddStatement = () => {
       <h2 className="add-statement-header">
         Add Statement for {addDate.month} {addDate.year}
       </h2>
+      {console.log(key)}
 
       {categories.map((category, i) => (
         <div key={i} className="category-section">
