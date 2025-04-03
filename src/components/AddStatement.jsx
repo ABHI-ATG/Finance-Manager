@@ -52,38 +52,35 @@ const AddStatement = () => {
   };
 
   const onSubmit = () => {
-    let updatedData = { ...data };
+    // Deep copy `data` to prevent unintended mutations
+    let updatedData = JSON.parse(JSON.stringify(data));
+
     Object.values(updatedData).forEach((categoryEntries) => {
-      categoryEntries.forEach((item) => {
-        const trimmedKey = item.key.trim();
-        item.key = trimmedKey;
-        dispatch(setAddKey(trimmedKey));
-      });
+        categoryEntries.forEach((item) => {
+            item.key = item.key.trim();
+            dispatch(setAddKey(item.key)); // Only dispatch once per key
+        });
     });
-    Object.values(updatedData).forEach((categoryEntries) => {
-      categoryEntries.forEach((item) => dispatch(setAddKey(item.key)));
-    });
+
     const selectedMonth = `${addDate.month} ${addDate.year}`;
+
     let updatedParsedData = parsedData.map((item) =>
-      item.monthYear === selectedMonth
-        ? {
+        item.monthYear === selectedMonth
+            ? { ...item, categories: updatedData }
+            : item
+    );
+
+    if (!parsedData.find((item) => item.monthYear === selectedMonth)) {
+        updatedParsedData.push({
             monthYear: selectedMonth,
             categories: updatedData,
-          }
-        : item
-    );
-    if (!parsedData.some((item) => item.monthYear === selectedMonth)) {
-      updatedParsedData = [
-        ...updatedParsedData,
-        {
-          monthYear: selectedMonth,
-          categories: updatedData,
-        },
-      ];
+        });
     }
+
     dispatch(setParsedData(updatedParsedData));
     navigate("/");
-  };
+};
+
 
   return (
     <div className="add-statement-container">
