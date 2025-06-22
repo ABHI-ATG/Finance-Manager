@@ -17,10 +17,7 @@ const FileReaderComponent = () => {
         if (Array.isArray(monthData["categories"][category])) {
           fileContent += `${category} -\n`;
           monthData["categories"][category].forEach((entry) => {
-            let line = `${entry.key},${entry.value}`;
-            if (entry.description) {
-              line += `,${entry.description}`;
-            }
+            let line = `${entry.key},${entry.value},${entry.description}`;
             fileContent += `${line}\n`;
           });
         }

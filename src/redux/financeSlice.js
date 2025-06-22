@@ -7,6 +7,7 @@ const initialState = {
   getStartDate: { month: "", year: "" },
   getEndDate: { month: "", year: "" },
   key: [],
+  descriptionKey: [],
   parsedData: [],
 };
 
@@ -34,6 +35,11 @@ const financeSlice = createSlice({
         state.key.push(action.payload);
       }
     },
+    setAddDescriptionKey: (state, action) => {
+      if (!state.descriptionKey.includes(action.payload)) {
+        state.descriptionKey.push(action.payload);
+      }
+    },
     setParsedData: (state, action) => {
       state.parsedData = action.payload;
     },
@@ -47,6 +53,7 @@ export const {
   setGetEndDate,
   setAddDate,
   setAddKey,
+  setAddDescriptionKey,
   setParsedData,
 } = financeSlice.actions;
 export default financeSlice.reducer;

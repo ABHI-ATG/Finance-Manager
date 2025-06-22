@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import months from "../data/month";
 import years from "../data/year";
 import { useNavigate } from "react-router-dom";
@@ -14,6 +14,10 @@ const AddHome = () => {
   const handleDateChange = (e, type) => {
     dispatch(setAddDate({ ...addDate, [type]: e.target.value }));
   };
+
+  useEffect(() => {
+    dispatch(setAddDate({ month: "", year: "" }));
+  }, [dispatch]);
 
   return (
     <div className="add-home-container">

@@ -1,6 +1,5 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setParsedData,setAddKey } from "../redux/financeSlice";
+import { useDispatch } from "react-redux";
+import { setParsedData,setAddKey, setAddDescriptionKey } from "../redux/financeSlice";
 import "../css/FileJson.css"; // Import the CSS file
 
 const FileReaderComponent = () => {
@@ -33,16 +32,12 @@ const FileReaderComponent = () => {
                 data[data.length - 1].categories[currentCategory] = [];
             } else if (line) {
                 const parts = line.split(",");
-                const entry = { key: parts[0], value: parseFloat(parts[1]) };
+                const entry = { key: parts[0], value: parseFloat(parts[1]), description:parts[2] };
                 dispatch(setAddKey(parts[0]))
-                if (parts.length > 2) {
-                    entry.description = parts.slice(2).join(", ");
-                }
-
+                dispatch(setAddDescriptionKey(parts[2]))
                 data[data.length - 1].categories[currentCategory].push(entry);
             }
         });
-
         return data;
     };
 
