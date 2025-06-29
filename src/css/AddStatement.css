@@ -1,88 +1,179 @@
+/* AddStatement.css */
+
 .add-statement-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
     max-width: 900px;
-    margin: 3rem auto;
-    padding: 2rem 2.2rem;
-    background: #fff;
-    border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .add-statement-header {
-    font-weight: 700;
-    color: #2563eb;
-    margin-bottom: 1.8rem;
-    font-size: 1.7rem;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2em;
+    text-align: center;
 }
 
 .category-section {
-    margin-bottom: 2.5rem;
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .category-title {
-    color: #14b8a6;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+    display: inline-block;
+    /* Makes the border only as wide as the text */
 }
 
 .input-group {
     display: flex;
-    gap: 8px;
-    margin-bottom: 12px;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
     flex-wrap: wrap;
+    /* Allows inputs to wrap on smaller screens */
 }
 
 .input-group input[type="text"] {
-    flex: 1 1 160px;
+    flex: 1;
+    /* Allows inputs to grow and shrink */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
     min-width: 120px;
-    padding: 8px 12px;
-    font-size: 0.95rem;
-    border: 1.5px solid #d1d5db;
-    border-radius: 10px;
-    transition: border-color 0.3s ease;
+    /* Ensures inputs don't get too small */
 }
 
-.input-group input[type="text"]:focus {
-    border-color: #2563eb;
-    outline: none;
+.input-group input[type="text"]::placeholder {
+    color: #999;
 }
 
 .remove-btn,
 .add-btn {
-    background-color: #14b8a6;
+    padding: 8px 12px;
     border: none;
-    color: #fff;
-    font-weight: 700;
-    border-radius: 10px;
-    padding: 6px 14px;
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 1em;
     transition: background-color 0.3s ease;
-    font-size: 1.1rem;
-    align-self: center;
-    min-width: 45px;
-    text-align: center;
+    flex-shrink: 0;
+    /* Prevents buttons from shrinking */
 }
 
-.remove-btn:hover,
+.remove-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.remove-btn:hover {
+    background-color: #c82333;
+}
+
+.add-btn {
+    background-color: #28a745;
+    color: white;
+    margin-top: 10px;
+    width: auto;
+    /* Adjust width based on content */
+    align-self: flex-start;
+    /* Aligns "Add" button to the left within its section */
+}
+
 .add-btn:hover {
-    background-color: #0f766e;
+    background-color: #218838;
 }
 
 .submit-btn {
-    margin-top: 2rem;
-    background-color: #2563eb;
-    font-size: 1.2rem;
     width: 100%;
-    padding: 14px 0;
-    border-radius: 14px;
-    border: none;
+    padding: 15px 20px;
+    background-color: #007bff;
     color: white;
-    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
     cursor: pointer;
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
-    transition: background-color 0.3s ease;
+    margin-top: 30px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .submit-btn:hover {
-    background-color: #1e40af;
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .add-statement-container {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .add-statement-header {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    .category-section {
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .category-title {
+        font-size: 1.3em;
+    }
+
+    .input-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .input-group input[type="text"] {
+        width: 100%;
+        min-width: unset;
+        /* Remove min-width for full flexibility on small screens */
+    }
+
+    .remove-btn,
+    .add-btn {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .submit-btn {
+        font-size: 1.1em;
+        padding: 12px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .add-statement-header {
+        font-size: 1.5em;
+    }
+
+    .category-title {
+        font-size: 1.2em;
+    }
+
+    .remove-btn,
+    .add-btn,
+    .submit-btn {
+        font-size: 1em;
+    }
 }

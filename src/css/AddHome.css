@@ -1,60 +1,70 @@
+/* AddHome.css */
+
 .add-home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
   max-width: 400px;
-  margin: 3rem auto;
-  padding: 2rem 1.5rem;
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  margin: 50px auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
 }
 
 .add-home-title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #2563eb;
-  margin-bottom: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.8em;
 }
 
 .add-home-label {
-  font-weight: 600;
-  color: #14b8a6;
-  margin-bottom: 0.5rem;
-  display: block;
-  font-size: 1.1rem;
+  align-self: flex-start; /* Aligns the label to the start of the flex container */
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
 }
 
 .add-home-select {
   width: 100%;
-  padding: 10px 12px;
-  font-size: 1rem;
-  border: 1.5px solid #d1d5db;
-  border-radius: 10px;
-  margin-bottom: 1.5rem;
-  background-color: #fff;
-  transition: border-color 0.3s ease;
-  cursor: pointer;
-}
-
-.add-home-select:hover,
-.add-home-select:focus {
-  border-color: #2563eb;
-  outline: none;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
 }
 
 .add-home-button {
-  background-color: #2563eb;
-  color: #fff;
-  font-weight: 700;
-  border: none;
-  border-radius: 14px;
-  padding: 12px 0;
   width: 100%;
-  font-size: 1.1rem;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1em;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
   transition: background-color 0.3s ease;
 }
 
 .add-home-button:hover {
-  background-color: #1e40af;
+  background-color: #0056b3;
+}
+
+/* Optional: Basic responsive adjustments */
+@media (max-width: 600px) {
+  .add-home-container {
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .add-home-title {
+    font-size: 1.5em;
+  }
+
+  .add-home-select,
+  .add-home-button {
+    font-size: 0.9em;
+  }
 }

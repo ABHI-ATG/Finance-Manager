@@ -1,34 +1,63 @@
+/* JsonFile.css */
+
 .file-reader-container {
-    max-width: 400px;
-    margin: 4rem auto;
-    background: #fff;
-    padding: 2.2rem 1.8rem;
-    border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    max-width: 500px;
+    margin: 50px auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    color: #333;
 }
 
 .file-reader-title {
-    font-weight: 700;
-    font-size: 1.75rem;
-    color: #2563eb;
-    margin-bottom: 2rem;
+    color: #007bff;
+    margin-bottom: 25px;
+    font-size: 2em;
+    text-align: center;
 }
 
 .file-reader-button {
-    width: 100%;
-    padding: 12px 0;
-    background-color: #2563eb;
-    border-radius: 14px;
-    border: none;
-    font-weight: 700;
-    font-size: 1.1rem;
+    padding: 12px 25px;
+    background-color: #007bff;
     color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
     cursor: pointer;
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .file-reader-button:hover {
-    background-color: #1e40af;
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+.file-reader-button:active {
+    background-color: #004085;
+    transform: translateY(0);
+}
+
+/* Optional: Basic responsive adjustments */
+@media (max-width: 600px) {
+    .file-reader-container {
+        margin: 30px auto;
+        padding: 20px;
+    }
+
+    .file-reader-title {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    .file-reader-button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
 }

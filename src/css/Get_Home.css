@@ -1,71 +1,95 @@
+/* Get_Home.css */
+
 .get-home-container {
-  max-width: 480px;
-  margin: 3rem auto;
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  padding: 2.5rem 2rem;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 450px;
+  /* Consistent with CheckHome for similar layout */
+  margin: 50px auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
 }
 
 .get-home-title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #2563eb;
-  margin-bottom: 2rem;
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 1.8em;
+  text-align: center;
 }
 
 .get-home-label {
+  align-self: flex-start;
+  /* Aligns the label to the start of the flex container */
+  margin-bottom: 8px;
+  margin-top: 15px;
+  /* Adds space above each label group */
+  font-weight: bold;
+  color: #555;
   display: flex;
+  /* To align checkbox and text */
   align-items: center;
-  font-weight: 600;
-  color: #14b8a6;
-  font-size: 1.1rem;
-  margin: 1.3rem 0 0.6rem;
-  justify-content: center;
-  gap: 8px;
 }
 
 .get-home-checkbox {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-  accent-color: #2563eb;
+  margin-right: 8px;
+  /* Space between checkbox and text */
+  transform: scale(1.2);
+  /* Slightly larger checkbox */
 }
 
 .get-home-select {
   width: 100%;
-  padding: 9px 14px;
-  margin-bottom: 1.4rem;
-  border-radius: 10px;
-  border: 1.5px solid #d1d5db;
-  font-size: 1rem;
-  background-color: #fff;
-  cursor: pointer;
-  transition: border-color 0.3s ease;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box;
+  /* Ensures padding and border are included in the element's total width and height */
 }
 
-.get-home-select:hover,
-.get-home-select:focus {
-  border-color: #2563eb;
-  outline: none;
+.get-home-select:disabled {
+  background-color: #e9e9e9;
+  cursor: not-allowed;
 }
 
 .get-home-button {
-  margin-top: 2rem;
   width: 100%;
-  padding: 12px 0;
-  background-color: #2563eb;
-  border-radius: 14px;
-  border: none;
-  font-weight: 700;
-  font-size: 1.1rem;
+  padding: 12px;
+  background-color: #17a2b8;
+  /* A distinct blue for "Get Insights" */
   color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1em;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
   transition: background-color 0.3s ease;
+  margin-top: 25px;
+  /* Space above the button */
 }
 
 .get-home-button:hover {
-  background-color: #1e40af;
+  background-color: #138496;
+  /* Darker blue on hover */
+}
+
+/* Optional: Basic responsive adjustments */
+@media (max-width: 600px) {
+  .get-home-container {
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .get-home-title {
+    font-size: 1.5em;
+  }
+
+  .get-home-select,
+  .get-home-button {
+    font-size: 0.9em;
+  }
 }

@@ -1,22 +1,54 @@
+/* FinanceManagement.css */
+
 .container {
-    max-width: 1100px;
-    margin: 3rem auto;
-    padding: 0 1rem;
-    font-family: var(--font-family);
-    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 1000px;
+    /* Adjust as needed for your application's overall width */
+    margin: 20px auto;
+    /* Centers the container horizontally with some top/bottom margin */
+    font-family: Arial, sans-serif;
+    color: #333;
 }
 
 .container h2 {
-    font-size: 2.4rem;
-    font-weight: 700;
-    margin-bottom: 2.2rem;
-    color: var(--primary-color);
+    color: #0056b3;
+    /* A nice shade of blue for the main heading */
+    margin-bottom: 30px;
+    font-size: 2.5em;
     text-align: center;
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #0056b3;
+    /* A subtle underline for the heading */
 }
 
 .routes-container {
-    background: var(--background-color);
-    padding: 2.5rem 3rem;
-    border-radius: 14px;
-    box-shadow: 0 10px 35px var(--shadow-color);
+    width: 100%;
+    /* This container will hold the content rendered by the active route */
+    /* You might add padding or a background here if you want a distinct look for the route content */
+    padding: 15px;
+    box-sizing: border-box;
+    /* Include padding in the element's total width and height */
+}
+
+/* Basic Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        margin: 15px auto;
+    }
+
+    .container h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container h2 {
+        font-size: 1.8em;
+    }
 }
