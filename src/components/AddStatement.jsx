@@ -6,7 +6,6 @@ import {
   setParsedData,
 } from "../redux/financeSlice";
 import { useNavigate } from "react-router-dom";
-import "../css/AddStatement.css";
 
 const AddStatement = () => {
   const categories = [

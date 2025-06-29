@@ -1,6 +1,5 @@
 import { useDispatch } from "react-redux";
 import { setParsedData,setAddKey, setAddDescriptionKey } from "../redux/financeSlice";
-import "../css/FileJson.css"; // Import the CSS file
 
 const FileReaderComponent = () => {
     const dispatch = useDispatch();

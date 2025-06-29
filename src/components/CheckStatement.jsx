@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import "../css/CheckStatement.css";
 
 const CheckStatement = () => {
   const categories = ["Credit","Expenses", "Credit Card", "Investment", "Repay", "Owe"];

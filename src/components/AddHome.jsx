@@ -4,7 +4,6 @@ import years from "../data/year";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setAddDate } from "../redux/financeSlice";
-import "../css/AddHome.css"; // Import the CSS file
 
 const AddHome = () => {
   const navigate = useNavigate();

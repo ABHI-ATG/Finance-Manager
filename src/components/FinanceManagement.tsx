@@ -4,7 +4,6 @@ import CheckStatement from "./CheckStatement";
 import AddState from "./AddStatement";
 import Home from "./Home";
 import GetInsights from "./GetInsights";
-import "../css/FinanceManagement.css";
 
 const FinanceManagement = () => {
   return (

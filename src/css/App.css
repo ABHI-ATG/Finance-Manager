@@ -1,0 +1,1323 @@
+/*
+ * Combined Responsive CSS for Finance Management Application
+ *
+ * This file consolidates styles for:
+ * - FinanceManagement (Main App Container)
+ * - Home (Landing Page) - (Assuming this is primarily the container)
+ * - AddHome (Add Statement Date Selector)
+ * - AddStatement (Detailed Statement Input)
+ * - CheckHome (Check Statement Date Selector)
+ * - CheckStatement (View Statements)
+ * - GetHome (Get Insights Date Selector)
+ * - GetInsights (View Insights)
+ * - FileReaderComponent (Upload File)
+ * - FileReaderComponent (Download File)
+ */
+
+/* -------------------------------------------------------------------------- */
+/* Global Styles                               */
+/* -------------------------------------------------------------------------- */
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    /* Using Inter font as per instructions */
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f7f6;
+    /* Light grey background for the entire app */
+    min-height: 100vh;
+    /* Ensure body takes full viewport height */
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #2c3e50;
+    /* Darker blue-grey for general headings */
+    margin-bottom: 0.8em;
+    font-weight: 600;
+}
+
+/* Links/Buttons base styles */
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 8px 16px;
+    /* Standardized button padding - slightly wider */
+    min-width: 100px;
+    /* Minimum width for buttons */
+    min-height: 40px;
+    /* Minimum height for buttons */
+    font-size: 0.9em;
+    /* Standardized button font size */
+    font-weight: 500;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    /* Use flexbox for centering text if needed */
+    align-items: center;
+    /* Vertically center text */
+    justify-content: center;
+    /* Horizontally center text */
+    text-align: center;
+    /* Fallback for text alignment */
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+select,
+input[type="text"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 0.95em;
+    color: #495057;
+    background-color: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    -webkit-appearance: none;
+    /* Remove default styling for select on WebKit browsers */
+    -moz-appearance: none;
+    /* Remove default styling for select on Firefox */
+    appearance: none;
+    /* Remove default styling for select */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23495057%22%20d%3D%22M287%2C114.7L154.7%2C247.1c-2.3%2C2.3-5.3%2C3.5-8.4%2C3.5s-6.1-1.2-8.4-3.5L5.4%2C114.7c-4.6-4.6-4.6-12.1%2C0-16.7l16.7-16.7c4.6-4.6%2C12.1-4.6%2C16.7%2C0l113.8%2C113.8L253.6%2C81.3c4.6-4.6%2C12.1-4.6%2C16.7%2C0l16.7%2C16.7C291.5%2C102.6%2C291.5%2C110.1%2C287%2C114.7z%22%2F%3E%3C%2Fsvg%3E');
+    /* Custom arrow for select */
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 0.65em auto;
+}
+
+select:focus,
+input[type="text"]:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Keyframe Animations                                                      */
+/* -------------------------------------------------------------------------- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* FinanceManagement Component                      */
+/* -------------------------------------------------------------------------- */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 0.8s ease-out forwards;
+    /* Apply fade-in animation */
+}
+
+.container h2 {
+    color: #0056b3;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+    /* Significantly decreased */
+    text-align: center;
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #0056b3;
+    transition: color 0.3s ease;
+    /* Smooth transition for color change */
+}
+
+.container h2:hover {
+    color: #007bff;
+    /* Slightly lighter blue on hover */
+}
+
+.routes-container {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+/* -------------------------------------------------------------------------- */
+/* AddHome Component                           */
+/* -------------------------------------------------------------------------- */
+.add-home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    max-width: 800px;
+    margin: 50px auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+    animation: fadeIn 0.8s ease-out forwards;
+    /* Apply fade-in animation */
+}
+
+.add-home-title {
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 1.4em;
+    /* Significantly decreased */
+    font-weight: 700;
+}
+
+.add-home-label {
+    align-self: flex-start;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #555;
+    font-size: 1em;
+}
+
+.add-home-select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 0.95em;
+    background-color: #f8f9fa;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    /* Add transition */
+}
+
+.add-home-select:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.add-home-button {
+    width: 100%;
+    /* Make button full width of its container */
+    padding: 8px 16px;
+    /* Standardized padding */
+    font-size: 0.95em;
+    /* Standardized font size */
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+    margin-top: 18px;
+    min-width: unset;
+    /* Override global min-width as it's full width */
+    min-height: unset;
+    /* Override global min-height as padding will define height */
+}
+
+.add-home-button:hover {
+    background-color: #0056b3;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* AddStatement Component                        */
+/* -------------------------------------------------------------------------- */
+.add-statement-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 25px auto;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease-out forwards;
+    /* Apply fade-in animation */
+}
+
+.add-statement-header {
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 1.6em;
+    /* Significantly decreased */
+    text-align: center;
+    width: 100%;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #333;
+    font-weight: 700;
+}
+
+.category-section {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    animation: slideInFromLeft 0.6s ease-out forwards;
+    /* Slide-in effect for sections */
+}
+
+.category-title {
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.35em;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 6px;
+    display: inline-block;
+    font-weight: 600;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.category-title:hover {
+    color: #0056b3;
+    border-color: #0056b3;
+}
+
+.input-group {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.input-group input[type="text"] {
+    flex: 1;
+    padding: 8px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 0.85em;
+    min-width: 120px;
+    background-color: #f8f9fa;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    /* Add transition */
+}
+
+.input-group input[type="text"]::placeholder {
+    color: #999;
+}
+
+.input-group input[type="text"]:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.remove-btn,
+.add-btn {
+    padding: 8px 16px;
+    /* Standardized padding */
+    font-size: 0.9em;
+    /* Standardized font size */
+    font-weight: 600;
+    line-height: 1;
+    flex-shrink: 0;
+    display: inline-flex;
+    /* Use flexbox */
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+.remove-btn {
+    background-color: #dc3545;
+}
+
+.remove-btn:hover {
+    background-color: #c82333;
+}
+
+.add-btn {
+    background-color: #007bff;
+    margin-top: 8px;
+    width: auto;
+    align-self: flex-start;
+}
+
+.add-btn:hover {
+    background-color: #218838;
+}
+
+.submit-btn {
+    width: 100%;
+    /* Make button full width of its container */
+    padding: 10px 16px;
+    /* Adjusted padding to maintain aspect relative to font size */
+    font-size: 0.95em;
+    /* Standardized font size */
+    background-color: #007bff;
+    color: white;
+    font-weight: 700;
+    margin-top: 25px;
+    min-width: unset;
+    /* Override global min-width as it's full width */
+    min-height: unset;
+    /* Override global min-height as padding will define height */
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* CheckHome Component                          */
+/* -------------------------------------------------------------------------- */
+.check-home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+    max-width: 800px;
+    margin: 40px auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+    animation: fadeIn 0.8s ease-out forwards;
+    /* Apply fade-in animation */
+}
+
+.check-home-title {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    /* Significantly decreased */
+    font-weight: 700;
+    text-align: center;
+}
+
+.check-home-label {
+    align-self: flex-start;
+    margin-bottom: 8px;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #555;
+    font-size: 1em;
+}
+
+.check-home-select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 0.95em;
+    background-color: #f8f9fa;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    /* Add transition */
+}
+
+.check-home-select:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.check-home-button {
+    width: 100%;
+    /* Make button full width of its container */
+    padding: 10px 16px;
+    /* Adjusted padding */
+    font-size: 0.95em;
+    /* Standardized font size */
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+    margin-top: 20px;
+    min-width: unset;
+    /* Override global min-width as it's full width */
+    min-height: unset;
+    /* Override global min-height as padding will define height */
+}
+
+.check-home-button:hover {
+    background-color: #0056b3;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* CheckStatement Component                       */
+/* -------------------------------------------------------------------------- */
+.statement-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 25px auto;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease-out forwards;
+    /* Apply fade-in animation */
+}
+
+.statement-header {
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 1.6em;
+    /* Significantly decreased */
+    text-align: center;
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #333;
+    font-weight: 700;
+}
+
+.statement-entry {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    animation: slideInFromLeft 0.6s ease-out forwards;
+    /* Slide-in effect for entries */
+}
+
+.statement-entry h3 {
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.35em;
+    text-align: center;
+    border-bottom: 1px dashed #007bff;
+    padding-bottom: 8px;
+    font-weight: 600;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.statement-entry h3:hover {
+    color: #0056b3;
+    border-color: #0056b3;
+}
+
+.statement-category {
+    color: #555;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1.15em;
+    background-color: #e9f7ff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-left: 5px solid #007bff;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.statement-category:hover {
+    background-color: #d1eaff;
+}
+
+.statement-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.statement-item:hover {
+    background-color: #e2e6ea;
+    transform: translateX(3px);
+    /* Subtle slide on hover */
+}
+
+.statement-item p {
+    margin: 0;
+    font-size: 0.95em;
+    color: #444;
+    flex-basis: 48%;
+    /* Adjust for two items per row */
+    word-break: break-word;
+}
+
+.statement-item p strong {
+    color: #333;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* GetHome Component                          */
+/* -------------------------------------------------------------------------- */
+.get-home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+    max-width: 800px;
+    margin: 40px auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+    animation: fadeIn 0.8s ease-out forwards;
+    /* Apply fade-in animation */
+}
+
+.get-home-title {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    /* Significantly decreased */
+    font-weight: 700;
+    text-align: center;
+}
+
+.get-home-label {
+    align-self: flex-start;
+    margin-bottom: 8px;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #555;
+    font-size: 1em;
+}
+
+.get-home-checkbox {
+    margin-right: 8px;
+    transform: scale(1.2);
+    /* Slightly larger checkbox */
+    accent-color: #17a2b8;
+    /* Highlight color for checkbox */
+}
+
+.get-home-select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 0.95em;
+    background-color: #f8f9fa;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    /* Add transition */
+}
+
+.get-home-select:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.get-home-button {
+    width: 100%;
+    /* Make button full width of its container */
+    padding: 10px 16px;
+    /* Adjusted padding */
+    font-size: 0.95em;
+    /* Standardized font size */
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+    margin-top: 20px;
+    min-width: unset;
+    /* Override global min-width as it's full width */
+    min-height: unset;
+    /* Override global min-height as padding will define height */
+}
+
+.get-home-button:hover {
+    background-color: #0056b3;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* GetInsights Component                        */
+/* -------------------------------------------------------------------------- */
+.insights-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 25px auto;
+    background-color: #fcfcfc;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease-out forwards;
+    /* Apply fade-in animation */
+}
+
+.insights-container h2 {
+    color: #007bff;
+    margin-bottom: 25px;
+    font-size: 1.6em;
+    /* Significantly decreased */
+    text-align: center;
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #007bff;
+    font-weight: 700;
+}
+
+.insight-category {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    animation: slideInFromLeft 0.6s ease-out forwards;
+    /* Slide-in effect for categories */
+}
+
+.insight-category h3 {
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.35em;
+    text-align: center;
+    border-bottom: 1px dashed #007bff;
+    padding-bottom: 8px;
+    font-weight: 600;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.insight-category h3:hover {
+    color: #218838;
+    border-color: #218838;
+}
+
+.insight-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    background-color: #e9f7ff;
+    border-radius: 6px;
+    border: 1px solid #cceeff;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.insight-item:hover {
+    background-color: #d1eaff;
+    transform: translateX(3px);
+    /* Subtle slide on hover */
+}
+
+.insight-item p {
+    margin: 0;
+    font-size: 0.95em;
+    color: #444;
+    flex-basis: 48%;
+    word-break: break-word;
+}
+
+.insight-item p strong {
+    color: #333;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.insight-item button {
+    padding: 8px 16px;
+    /* Standardized padding */
+    font-size: 0.9em;
+    /* Standardized font size */
+    background-color: #007bff;
+    color: white;
+    margin-top: 5px;
+    flex-shrink: 0;
+}
+
+.insight-item button:hover {
+    background-color: #0056b3;
+}
+
+/* Summary section */
+.summary-section {
+    width: 100%;
+    margin-top: 25px;
+    padding: 20px;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    background-color: #eef7ff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease-out 0.2s forwards;
+    /* Delayed fade-in */
+}
+
+.summary-section h3 {
+    color: #0056b3;
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 1.8em;
+    text-align: center;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #0056b3;
+    font-weight: 700;
+}
+
+.summary-section p {
+    font-size: 1em;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-bottom: 1px dotted #ccc;
+}
+
+.summary-section p:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.summary-section p strong {
+    color: #111;
+    flex-shrink: 0;
+    margin-right: 12px;
+    font-weight: 700;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* FileReaderComponent (Upload File)                    */
+/* -------------------------------------------------------------------------- */
+.file-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+    max-width: 800px;
+    margin: 40px auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+    animation: fadeIn 0.8s ease-out forwards;
+    /* Apply fade-in animation */
+}
+
+.file-upload-container h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    /* Significantly decreased */
+    font-weight: 700;
+    text-align: center;
+}
+
+.file-upload-container input[type="file"] {
+    padding: 10px;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    font-size: 0.95em;
+    color: #333;
+    background-color: #e9f7ff;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: none;
+    /* Remove default button shadow for custom input */
+}
+
+/* Custom button style for file input */
+.file-upload-container input[type="file"]::before {
+    content: 'Choose File';
+    display: inline-flex;
+    /* Changed to inline-flex */
+    background: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+    border-radius: 6px;
+    padding: 8px 16px;
+    /* Standardized padding for file upload button */
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9em;
+    /* Standardized font size for file upload button */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 100px;
+    /* Enforce minimum width */
+    min-height: 40px;
+    /* Enforce minimum height */
+    align-items: center;
+    /* Vertically center content */
+    justify-content: center;
+    /* Horizontally center content */
+}
+
+.file-upload-container input[type="file"]:hover::before {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    transform: translateY(-1px);
+    /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.file-upload-container input[type="file"]:active::before {
+    background-color: #004085;
+    border-color: #004085;
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* FileReaderComponent (Download File)                  */
+/* -------------------------------------------------------------------------- */
+.file-reader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+    max-width: 800px;
+    margin: 40px auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+    animation: fadeIn 0.8s ease-out forwards;
+    /* Apply fade-in animation */
+}
+
+.file-reader-title {
+    color: #007bff;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    /* Significantly decreased */
+    font-weight: 700;
+    text-align: center;
+}
+
+.file-reader-button {
+    width: 100%;
+    /* Make button full width of its container */
+    padding: 10px 16px;
+    /* Adjusted padding */
+    font-size: 0.95em;
+    /* Standardized font size */
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+    min-width: unset;
+    /* Override global min-width as it's full width */
+    min-height: unset;
+    /* Override global min-height as padding will define height */
+}
+
+.file-reader-button:hover {
+    background-color: #0056b3;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* Responsive Adjustments                         */
+/* -------------------------------------------------------------------------- */
+
+/* Tablet View: max-width 992px */
+@media (max-width: 992px) {
+
+    /* Set max-width for all main containers to be equal */
+    .container,
+    .add-home-container,
+    .add-statement-container,
+    .check-home-container,
+    .statement-container,
+    .get-home-container,
+    .insights-container,
+    .file-upload-container,
+    .file-reader-container {
+        max-width: 95%;
+        padding: 10px;
+        margin: 15px auto;
+    }
+
+    /* Further decrease font sizes for tablet */
+    h2 {
+        font-size: 1.5em;
+        /* Significantly decreased */
+    }
+
+    h3 {
+        font-size: 1.25em;
+        /* Increased */
+    }
+
+    .add-home-title,
+    .check-home-title,
+    .get-home-title,
+    .file-upload-container h2,
+    .file-reader-title {
+        font-size: 1.3em;
+        /* Significantly decreased */
+    }
+
+    .add-statement-header,
+    .statement-header,
+    .insights-container h2 {
+        font-size: 1.4em;
+        /* Significantly decreased */
+    }
+
+    .category-title,
+    .statement-entry h3,
+    .insight-category h3 {
+        font-size: 1.15em;
+        /* Increased */
+    }
+
+    .add-home-label,
+    .check-home-label,
+    .get-home-label {
+        font-size: 0.9em;
+        /* Increased */
+    }
+
+    .add-home-select,
+    .check-home-select,
+    .get-home-select,
+    .input-group input[type="text"] {
+        font-size: 0.85em;
+        /* Increased */
+        padding: 6px;
+    }
+
+    .remove-btn,
+    .add-btn,
+    .submit-btn,
+    .check-home-button,
+    .get-home-button,
+    .file-reader-button {
+        font-size: 0.9em;
+        /* Standardized font size */
+        padding: 8px 16px;
+        /* Standardized button padding for tablet */
+        min-width: 90px;
+        /* Adjusted min-width for tablet */
+        min-height: 38px;
+        /* Adjusted min-height for tablet */
+    }
+
+    .insight-item p,
+    .summary-section p {
+        font-size: 0.85em;
+        /* Increased */
+    }
+
+    .insight-item button {
+        font-size: 0.8em;
+        /* Increased slightly to match other small buttons */
+        padding: 7px 12px;
+        /* Adjusted padding and width */
+        min-width: 80px;
+        /* Adjusted min-width for tablet item buttons */
+        min-height: 36px;
+        /* Adjusted min-height for tablet item buttons */
+    }
+
+    /* Ensure file upload button also follows new standardization */
+    .file-upload-container input[type="file"]::before {
+        font-size: 0.9em;
+        /* Standardized font size */
+        padding: 8px 16px;
+        /* Standardized padding */
+        min-width: 90px;
+        /* Adjusted min-width for tablet */
+        min-height: 38px;
+        /* Adjusted min-height for tablet */
+    }
+}
+
+/* Mobile View: max-width 768px */
+@media (max-width: 768px) {
+
+    /* Set max-width for all main containers to be equal */
+    .container,
+    .add-home-container,
+    .add-statement-container,
+    .check-home-container,
+    .statement-container,
+    .get-home-container,
+    .insights-container,
+    .file-upload-container,
+    .file-reader-container {
+        max-width: 98%;
+        padding: 6px;
+        margin: 10px auto;
+    }
+
+    /* Decrease font sizes more for mobile */
+    h2 {
+        font-size: 1.2em;
+        /* Significantly decreased */
+    }
+
+    h3 {
+        font-size: 1em;
+        /* Increased */
+    }
+
+    .add-home-title,
+    .check-home-title,
+    .get-home-title,
+    .file-upload-container h2,
+    .file-reader-title {
+        font-size: 1.1em;
+        /* Significantly decreased */
+    }
+
+    .add-statement-header,
+    .statement-header,
+    .insights-container h2 {
+        font-size: 1.2em;
+        /* Significantly decreased */
+    }
+
+    .category-title,
+    .statement-entry h3,
+    .insight-category h3 {
+        font-size: 0.95em;
+        /* Increased */
+    }
+
+    .add-home-label,
+    .check-home-label,
+    .get-home-label {
+        font-size: 0.8em;
+        /* Increased */
+    }
+
+    .add-home-select,
+    .check-home-select,
+    .get-home-select,
+    .input-group input[type="text"] {
+        font-size: 0.75em;
+        /* Increased */
+        padding: 4px;
+    }
+
+    .remove-btn,
+    .add-btn,
+    .submit-btn,
+    .check-home-button,
+    .get-home-button,
+    .file-reader-button {
+        font-size: 0.8em;
+        /* Standardized font size */
+        padding: 6px 12px;
+        /* Standardized button padding for mobile */
+        min-width: 80px;
+        /* Adjusted min-width for mobile */
+        min-height: 35px;
+        /* Adjusted min-height for mobile */
+    }
+
+    .insight-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .insight-item p {
+        flex-basis: 100%;
+        margin-bottom: 0px;
+        font-size: 0.8em;
+        /* Increased */
+    }
+
+    .summary-section p {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2px 0;
+        font-size: 0.85em;
+        /* Increased */
+    }
+
+    .summary-section p strong {
+        margin-bottom: 0px;
+    }
+
+    .insight-item button {
+        font-size: 0.7em;
+        /* Increased slightly to match other small buttons */
+        padding: 6px 10px;
+        /* Adjusted padding and width */
+        min-width: 70px;
+        /* Adjusted min-width for mobile item buttons */
+        min-height: 32px;
+        /* Adjusted min-height for mobile item buttons */
+    }
+
+    /* Ensure file upload button also follows new standardization */
+    .file-upload-container input[type="file"]::before {
+        font-size: 0.8em;
+        /* Standardized font size */
+        padding: 6px 12px;
+        /* Standardized padding */
+        min-width: 80px;
+        /* Adjusted min-width for mobile */
+        min-height: 35px;
+        /* Adjusted min-height for mobile */
+    }
+}
+
+/* Smaller Mobile View: max-width 576px */
+@media (max-width: 576px) {
+
+    /* Set max-width for all main containers to be equal */
+    .container,
+    .add-home-container,
+    .add-statement-container,
+    .check-home-container,
+    .statement-container,
+    .get-home-container,
+    .insights-container,
+    .file-upload-container,
+    .file-reader-container {
+        max-width: 100%;
+        padding: 4px;
+        margin: 6px auto;
+        border-radius: 4px;
+    }
+
+    /* Further decrease font sizes for very small mobile */
+    h2 {
+        font-size: 0.9em;
+        /* Significantly decreased */
+        margin-bottom: 6px;
+    }
+
+    h3 {
+        font-size: 0.85em;
+        /* Increased */
+    }
+
+    .add-home-title,
+    .check-home-title,
+    .get-home-title,
+    .file-upload-container h2,
+    .file-reader-title {
+        font-size: 0.9em;
+        /* Significantly decreased */
+    }
+
+    .add-statement-header,
+    .statement-header,
+    .insights-container h2 {
+        font-size: 1em;
+        /* Significantly decreased */
+        margin-bottom: 6px;
+    }
+
+    .category-title,
+    .statement-entry h3,
+    .insight-category h3 {
+        font-size: 0.8em;
+        /* Increased */
+    }
+
+    .add-home-label,
+    .check-home-label,
+    .get-home-label {
+        font-size: 0.7em;
+        /* Increased */
+    }
+
+    .add-home-select,
+    .check-home-select,
+    .get-home-select,
+    .input-group input[type="text"] {
+        font-size: 0.65em;
+        /* Increased */
+        padding: 3px;
+    }
+
+    .remove-btn,
+    .add-btn,
+    .submit-btn,
+    .check-home-button,
+    .get-home-button,
+    .file-reader-button {
+        font-size: 0.7em;
+        /* Standardized font size */
+        padding: 5px 10px;
+        /* Standardized button padding for small mobile */
+        min-width: 70px;
+        /* Adjusted min-width for small mobile */
+        min-height: 30px;
+        /* Adjusted min-height for small mobile */
+    }
+
+    .insight-item p,
+    .summary-section p {
+        font-size: 0.7em;
+        /* Increased */
+    }
+
+    .insight-item button {
+        font-size: 0.6em;
+        /* Increased slightly to match other small buttons */
+        padding: 4px 8px;
+        /* Adjusted padding and width */
+        min-width: 60px;
+        /* Adjusted min-width for small mobile item buttons */
+        min-height: 28px;
+        /* Adjusted min-height for small mobile item buttons */
+    }
+
+    /* Ensure file upload button also follows new standardization */
+    .file-upload-container input[type="file"]::before {
+        font-size: 0.7em;
+        /* Standardized font size */
+        padding: 5px 10px;
+        /* Standardized padding */
+        min-width: 70px;
+        /* Adjusted min-width for small mobile */
+        min-height: 30px;
+        /* Adjusted min-height for small mobile */
+    }
+}

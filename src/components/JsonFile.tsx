@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import "../css/JsonFile.css"; // Import CSS
 
 const FileReaderComponent = () => {
   const parsedData = useSelector((state) => state.finance.parsedData);

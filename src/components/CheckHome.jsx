@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { setStartDate, setEndDate } from "../redux/financeSlice";
 import months from "../data/month";
 import years from "../data/year";
-import "../css/CheckHome.css";
 
 const CheckHome = () => {
   const dispatch = useDispatch();

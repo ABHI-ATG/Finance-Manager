@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import "../css/GetInsights.css";
 
 const GetInsights = () => {
   const categories = [
