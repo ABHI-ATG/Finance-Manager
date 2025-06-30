@@ -1365,13 +1365,13 @@ input[type="text"]:focus {
     /* First input - medium width */
     .input-group input:nth-child(1) {
         flex: 0 0 50%;
-        min-width: 175px;
+        min-width: 160px;
     }
 
     /* Second input - smallest width */
     .input-group input:nth-child(3) {
         flex: 0 0 50%;
-        min-width: 175px;
+        min-width: 160px;
     }
 
     /* Third input - largest width, flexible */
