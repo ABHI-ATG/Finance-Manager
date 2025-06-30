@@ -1364,25 +1364,18 @@ input[type="text"]:focus {
 
     /* First input - medium width */
     .input-group input:nth-child(1) {
-        flex: 0 0 30%;
-        /* don't grow/shrink, fixed 30% width */
-        min-width: 60px;
-        /* optional min width */
-        max-width: 95px;
+        flex: 0 0 50%;
+        min-width: 175px;
     }
 
     /* Second input - smallest width */
     .input-group input:nth-child(3) {
-        flex: 0 0 15%;
-        /* smallest width */
-        min-width: 40px;
-        max-width: 50px;
+        flex: 0 0 50%;
+        min-width: 175px;
     }
 
     /* Third input - largest width, flexible */
     .input-group input:nth-child(4) {
-        flex: 1 1 auto;
-        /* grow and shrink to fill remaining space */
-        min-width: 150px;
+        flex: 1 1 70%;
     }
 }
