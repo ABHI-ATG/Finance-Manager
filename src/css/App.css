@@ -57,9 +57,9 @@ button {
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
     padding: 8px 16px;
     /* Standardized button padding - slightly wider */
-    min-width: 100px;
+    min-width: 40px;
     /* Minimum width for buttons */
-    min-height: 40px;
+    min-height: 30px;
     /* Minimum height for buttons */
     font-size: 0.9em;
     /* Standardized button font size */
@@ -88,25 +88,12 @@ button:active {
 
 select,
 input[type="text"] {
-    width: 100%;
-    padding: 10px 12px;
     border: 1px solid #ced4da;
     border-radius: 6px;
     font-size: 0.95em;
     color: #495057;
     background-color: #fff;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    -webkit-appearance: none;
-    /* Remove default styling for select on WebKit browsers */
-    -moz-appearance: none;
-    /* Remove default styling for select on Firefox */
-    appearance: none;
-    /* Remove default styling for select */
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23495057%22%20d%3D%22M287%2C114.7L154.7%2C247.1c-2.3%2C2.3-5.3%2C3.5-8.4%2C3.5s-6.1-1.2-8.4-3.5L5.4%2C114.7c-4.6-4.6-4.6-12.1%2C0-16.7l16.7-16.7c4.6-4.6%2C12.1-4.6%2C16.7%2C0l113.8%2C113.8L253.6%2C81.3c4.6-4.6%2C12.1-4.6%2C16.7%2C0l16.7%2C16.7C291.5%2C102.6%2C291.5%2C110.1%2C287%2C114.7z%22%2F%3E%3C%2Fsvg%3E');
-    /* Custom arrow for select */
-    background-repeat: no-repeat;
-    background-position: right 10px top 50%;
-    background-size: 0.65em auto;
 }
 
 select:focus,
@@ -151,7 +138,7 @@ input[type="text"]:focus {
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 20px auto;
     background-color: #fff;
     border-radius: 12px;
@@ -163,7 +150,7 @@ input[type="text"]:focus {
 .container h2 {
     color: #0056b3;
     margin-bottom: 30px;
-    font-size: 1.8em;
+    font-size: 1.4em;
     /* Significantly decreased */
     text-align: center;
     width: 100%;
@@ -265,7 +252,7 @@ input[type="text"]:focus {
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    max-width: 800px;
+    max-width: 900px;
     margin: 25px auto;
     background-color: #f9f9f9;
     border-radius: 10px;
@@ -305,7 +292,6 @@ input[type="text"]:focus {
     font-size: 1.35em;
     border-bottom: 2px solid #007bff;
     padding-bottom: 6px;
-    display: inline-block;
     font-weight: 600;
     transition: color 0.3s ease, border-color 0.3s ease;
 }
@@ -324,15 +310,37 @@ input[type="text"]:focus {
 }
 
 .input-group input[type="text"] {
-    flex: 1;
     padding: 8px 10px;
     border: 1px solid #ced4da;
     border-radius: 6px;
     font-size: 0.85em;
-    min-width: 120px;
     background-color: #f8f9fa;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     /* Add transition */
+}
+
+/* First input - medium width */
+.input-group input:nth-child(1) {
+    flex: 0 0 30%;
+    /* don't grow/shrink, fixed 30% width */
+    min-width: 100px;
+    /* optional min width */
+    max-width: 200px;
+}
+
+/* Second input - smallest width */
+.input-group input:nth-child(3) {
+    flex: 0 0 15%;
+    /* smallest width */
+    min-width: 60px;
+    max-width: 100px;
+}
+
+/* Third input - largest width, flexible */
+.input-group input:nth-child(4) {
+    flex: 1 1 auto;
+    /* grow and shrink to fill remaining space */
+    min-width: 150px;
 }
 
 .input-group input[type="text"]::placeholder {
@@ -761,13 +769,13 @@ input[type="text"]:focus {
 }
 
 .insight-item button {
-    padding: 8px 16px;
+    padding: 3px 8px;
     /* Standardized padding */
     font-size: 0.9em;
     /* Standardized font size */
     background-color: #007bff;
     color: white;
-    margin-top: 5px;
+    margin-top: 3px;
     flex-shrink: 0;
 }
 
@@ -792,7 +800,7 @@ input[type="text"]:focus {
     color: #0056b3;
     margin-top: 0;
     margin-bottom: 18px;
-    font-size: 1.8em;
+    font-size: 1.4em;
     text-align: center;
     padding-bottom: 8px;
     border-bottom: 2px solid #0056b3;
@@ -849,7 +857,7 @@ input[type="text"]:focus {
 }
 
 .file-upload-container input[type="file"] {
-    padding: 10px;
+    padding: 3px;
     border: 2px solid #007bff;
     border-radius: 8px;
     font-size: 0.95em;
@@ -870,7 +878,7 @@ input[type="text"]:focus {
     color: white;
     border: 1px solid #007bff;
     border-radius: 6px;
-    padding: 8px 16px;
+    padding: 3px 16px;
     /* Standardized padding for file upload button */
     outline: none;
     white-space: nowrap;
@@ -883,7 +891,7 @@ input[type="text"]:focus {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     min-width: 100px;
     /* Enforce minimum width */
-    min-height: 40px;
+    min-height: 30px;
     /* Enforce minimum height */
     align-items: center;
     /* Vertically center content */
@@ -988,6 +996,7 @@ input[type="text"]:focus {
         /* Increased */
     }
 
+    .container h2,
     .add-home-title,
     .check-home-title,
     .get-home-title,
@@ -1032,15 +1041,12 @@ input[type="text"]:focus {
     .submit-btn,
     .check-home-button,
     .get-home-button,
-    .file-reader-button {
+    .file-reader-button,
+    .add-home-button {
         font-size: 0.9em;
-        /* Standardized font size */
-        padding: 8px 16px;
-        /* Standardized button padding for tablet */
-        min-width: 90px;
-        /* Adjusted min-width for tablet */
-        min-height: 38px;
-        /* Adjusted min-height for tablet */
+        padding: 8px 12px;
+        min-width: 40px;
+        min-height: 30px;
     }
 
     .insight-item p,
@@ -1060,16 +1066,16 @@ input[type="text"]:focus {
         /* Adjusted min-height for tablet item buttons */
     }
 
+    .file-upload-container input[type="file"] {
+        font-size: 0.9em;
+    }
+
     /* Ensure file upload button also follows new standardization */
     .file-upload-container input[type="file"]::before {
         font-size: 0.9em;
-        /* Standardized font size */
-        padding: 8px 16px;
-        /* Standardized padding */
-        min-width: 90px;
-        /* Adjusted min-width for tablet */
-        min-height: 38px;
-        /* Adjusted min-height for tablet */
+        padding: 6px 12px;
+        min-width: 80px;
+        min-height: 20px;
     }
 }
 
@@ -1102,6 +1108,7 @@ input[type="text"]:focus {
         /* Increased */
     }
 
+    .container h2,
     .add-home-title,
     .check-home-title,
     .get-home-title,
@@ -1146,14 +1153,15 @@ input[type="text"]:focus {
     .submit-btn,
     .check-home-button,
     .get-home-button,
-    .file-reader-button {
+    .file-reader-button,
+    .add-home-button {
         font-size: 0.8em;
         /* Standardized font size */
-        padding: 6px 12px;
+        padding: 4px 10px;
         /* Standardized button padding for mobile */
-        min-width: 80px;
+        min-width: 40px;
         /* Adjusted min-width for mobile */
-        min-height: 35px;
+        min-height: 25px;
         /* Adjusted min-height for mobile */
     }
 
@@ -1188,20 +1196,47 @@ input[type="text"]:focus {
         /* Adjusted padding and width */
         min-width: 70px;
         /* Adjusted min-width for mobile item buttons */
-        min-height: 32px;
+        min-height: 20px;
         /* Adjusted min-height for mobile item buttons */
+    }
+
+    .file-upload-container input[type="file"] {
+        font-size: 0.8em;
     }
 
     /* Ensure file upload button also follows new standardization */
     .file-upload-container input[type="file"]::before {
         font-size: 0.8em;
         /* Standardized font size */
-        padding: 6px 12px;
+        padding: 3px 12px;
         /* Standardized padding */
         min-width: 80px;
         /* Adjusted min-width for mobile */
-        min-height: 35px;
+        min-height: 20px;
         /* Adjusted min-height for mobile */
+    }
+
+    .input-group input:nth-child(1) {
+        flex: 0 0 30%;
+        /* don't grow/shrink, fixed 30% width */
+        min-width: 60px;
+        /* optional min width */
+        max-width: 110px;
+    }
+
+    /* Second input - smallest width */
+    .input-group input:nth-child(3) {
+        flex: 0 0 15%;
+        /* smallest width */
+        min-width: 40px;
+        max-width: 60px;
+    }
+
+    /* Third input - largest width, flexible */
+    .input-group input:nth-child(4) {
+        flex: 1 1 auto;
+        /* grow and shrink to fill remaining space */
+        min-width: 150px;
     }
 }
 
@@ -1226,7 +1261,7 @@ input[type="text"]:focus {
 
     /* Further decrease font sizes for very small mobile */
     h2 {
-        font-size: 0.9em;
+        font-size: 1em;
         /* Significantly decreased */
         margin-bottom: 6px;
     }
@@ -1236,12 +1271,13 @@ input[type="text"]:focus {
         /* Increased */
     }
 
+    .container h2,
     .add-home-title,
     .check-home-title,
     .get-home-title,
     .file-upload-container h2,
     .file-reader-title {
-        font-size: 0.9em;
+        font-size: 1em;
         /* Significantly decreased */
     }
 
@@ -1271,7 +1307,7 @@ input[type="text"]:focus {
     .check-home-select,
     .get-home-select,
     .input-group input[type="text"] {
-        font-size: 0.65em;
+        font-size: 0.8em;
         /* Increased */
         padding: 3px;
     }
@@ -1281,14 +1317,15 @@ input[type="text"]:focus {
     .submit-btn,
     .check-home-button,
     .get-home-button,
-    .file-reader-button {
+    .file-reader-button,
+    .add-home-button {
         font-size: 0.7em;
         /* Standardized font size */
         padding: 5px 10px;
         /* Standardized button padding for small mobile */
-        min-width: 70px;
+        min-width: 30px;
         /* Adjusted min-width for small mobile */
-        min-height: 30px;
+        min-height: 20px;
         /* Adjusted min-height for small mobile */
     }
 
@@ -1309,15 +1346,43 @@ input[type="text"]:focus {
         /* Adjusted min-height for small mobile item buttons */
     }
 
+    .file-upload-container input[type="file"] {
+        font-size: 0.8em;
+    }
+
     /* Ensure file upload button also follows new standardization */
     .file-upload-container input[type="file"]::before {
-        font-size: 0.7em;
+        font-size: 0.8em;
         /* Standardized font size */
-        padding: 5px 10px;
+        padding: 3px 10px;
         /* Standardized padding */
         min-width: 70px;
         /* Adjusted min-width for small mobile */
-        min-height: 30px;
+        min-height: 20px;
         /* Adjusted min-height for small mobile */
+    }
+
+    /* First input - medium width */
+    .input-group input:nth-child(1) {
+        flex: 0 0 30%;
+        /* don't grow/shrink, fixed 30% width */
+        min-width: 60px;
+        /* optional min width */
+        max-width: 95px;
+    }
+
+    /* Second input - smallest width */
+    .input-group input:nth-child(3) {
+        flex: 0 0 15%;
+        /* smallest width */
+        min-width: 40px;
+        max-width: 50px;
+    }
+
+    /* Third input - largest width, flexible */
+    .input-group input:nth-child(4) {
+        flex: 1 1 auto;
+        /* grow and shrink to fill remaining space */
+        min-width: 150px;
     }
 }

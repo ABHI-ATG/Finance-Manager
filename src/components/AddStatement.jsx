@@ -191,7 +191,7 @@ const AddStatement = () => {
                 className="remove-btn"
                 onClick={() => handleRemove(category, index)}
               >
-                ❌
+                X
               </button>
             </div>
           ))}
